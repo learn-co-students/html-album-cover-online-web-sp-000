@@ -33,12 +33,14 @@ RSpec.describe 'HTML Album Cover' do
         expect(back_cover.children.select {|ch| ch.name == "span"}.first.children.first.text).to include("PHARRELLWILLIAMS.COM"), "The first span tag should include the text 'PHARRELLWILLIAMS.COM'"
 
         expect(back_cover.children.any? {|ch| ch.name == "img"}).to be == true, "No 'img' tag was found"
-        # binding.pry
+
         expect(back_cover.children.select {|ch| ch.name == "img"}[0].attributes["src"].value).to be == 'https://s3.amazonaws.com/learn-verified/columbia-logo.png', "First image should have its source set to 'https://s3.amazonaws.com/learn-verified/columbia-logo.png'"
+
         expect(back_cover.children.select {|ch| ch.name == "span"}[1].children.first.text).to include("COLUMBIARECORDS.COM"), "The second span tag should include the text 'COLUMBIARECORDS.COM'"
 
-        expect(back_cover.children.select {|ch| ch.name == "img"}[1].attributes["src"].value).to be == 'https://s3.amazonaws.com/learn-verified/sony-logo.png', "First image should have its source set to 'https://s3.amazonaws.com/learn-verified/columbia-logo.png'"
-        binding.pry
+        # Original SPEC Expect line has typo. Should have corrected description to make troubleshoot easier
+        # expect(back_cover.children.select {|ch| ch.name == "img"}[1].attributes["src"].value).to be == 'https://s3.amazonaws.com/learn-verified/sony-logo.png', "First image should have its source set to 'https://s3.amazonaws.com/learn-verified/columbia-logo.png'"
+        expect(back_cover.children.select {|ch| ch.name == "img"}[1].attributes["src"].value).to be == 'https://s3.amazonaws.com/learn-verified/sony-logo.png', "First image should have its source set to 'https://s3.amazonaws.com/learn-verified/sony-logo.png'"
 
       end
 
